@@ -1,0 +1,20 @@
+﻿.home-cont1 {
+    position: relative;
+    margin-top: 70px;
+    background-color: rgba(200, 200, 200, 0.2);
+    height: 150px;
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    border-top: 2px solid #fff;
+}
+
+h3 {
+    margin-left: 40px;
+    margin-top: 10px;
+    color: #999;
+}
+
+span {
+    margin-left: 40px;
+    color: #999;
+}
