@@ -10,6 +10,7 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Assert.Pass();
+        var result = 2;
+        Assert.That(result, Is.EqualTo(2));
     }
 }
