@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LoginMenu } from './api-authorization/LoginMenu';
 import './NavMenu.css';
 
 export const NavMenu = () => {
@@ -13,21 +11,36 @@ export const NavMenu = () => {
 
   return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
-          <NavbarBrand tag={Link} to="/">devIDEA</NavbarBrand>
-          <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-          <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
-            <ul className="navbar-nav flex-grow">
-              <NavItem>
-                <NavLink tag={Link} className="text-light" to="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-light" to="/idea">IDEA</NavLink>
-              </NavItem>
-              <LoginMenu />
-            </ul>
-          </Collapse>
-        </Navbar>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+          <div className="container-xl">
+            <a className="navbar-brand" href="#"><img className="w-50" src="/logo.png" alt="logo"/> </a>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarsExample07XL">
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link className="nav-link active px-5"  aria-current="page" to="/idea" >New IDEA</Link>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" href="#">About</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Contact</a>
+                </li>
+                <li className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
+                  <ul className="dropdown-menu" aria-labelledby="dropdown07XL">
+                    <li><a className="dropdown-item" href="#">Action</a></li>
+                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </header>
   );
 }
