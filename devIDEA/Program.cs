@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using devIDEA.Data;
+using devIDEA.Middleware;
 using devIDEA.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +52,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+app.UseCorsMiddleware();
 
 app.MapFallbackToFile("index.html");
 
