@@ -1,19 +1,9 @@
-﻿.translate-middle {
-    transform: translate(-50%,-50%)!important;
-}
-.start-50 {
-    left: 50%!important;
-}
-.top-50 {
-    top: 50%!important;
-}
-.fs-1 {
+﻿.fs-1 {
     font-size: calc(2.375rem + 3vw)!important;
 }
-
-
-
-
+.text-white-transparent {
+    color: rgba(255, 255, 255, 0.6);
+}
 .text-purpleblue {
     background: -webkit-linear-gradient(45deg, rgb(92, 0, 184) 40%, rgba(16,103,200,1) 100%);
     -webkit-background-clip: text;
@@ -41,9 +31,6 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-
-
 
 .cti {
     background-color: #6019bd;
