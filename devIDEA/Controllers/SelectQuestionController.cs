@@ -1,5 +1,6 @@
 using devIDEA.Models;
 using devIDEA.Models.Repositories;
+using Duende.IdentityServer.EntityFramework.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 
@@ -19,22 +20,27 @@ public class SelectQuestionController : ControllerBase
         "How much chuck could a woodchuck chuck? (kg)"
     };
 
-    private Dictionary<string, string[]> answers = new Dictionary<string, string[]>();
 
     [HttpGet("/selectGetQuestions")]
-    public IActionResult SelectGetQuestions()
+    public ActionResult<IEnumerable<object>> SelectGetQuestions()
     {
-        answers = new Dictionary<string, string[]>()
+        try
         {
-            {_notFinalQuestions[0], new []{"Blue", "Red", "Yellow", "Black"}},
-            {_notFinalQuestions[1], new []{"JavaScript", "C#", "Python", "C++", "TypeScript"}},
-            {_notFinalQuestions[2], new []{"Milka", "Boci", "Tibi", "Snickers", "Mars", "Bounty"}},
-            {_notFinalQuestions[3], new []{"Minimal", "Gothic", "Colourful", "Abstract", "Mono"}},
-            {_notFinalQuestions[4], new []{"0 - 5", "5 - 10", "10 - 15", "15 - 20", "20 - 25", "25+"}},
-            {_notFinalQuestions[5], new []{"0 - 7", "7 - 15", "15 - 25", "25 - 35", "35 - 50", "50+"}}
-        };
-        
-        return Ok(answers);
+            return Ok(
+                new List<Object>
+                {
+                    new { question = _notFinalQuestions[0], answers = new[] { "Blue", "Red", "Yellow", "Black" }},
+                    new { question = _notFinalQuestions[1], answers = new[] { "JavaScript", "C#", "Python", "C++", "TypeScript" }},
+                    new { question= _notFinalQuestions[2], answers = new[] { "Milka", "Boci", "Tibi", "Snickers", "Mars", "Bounty" }},
+                    new { question= _notFinalQuestions[3], answers = new[] { "Minimal", "Gothic", "Colourful", "Abstract", "Mono" }},
+                    new { question= _notFinalQuestions[4], answers = new[] { "0 - 5", "5 - 10", "10 - 15", "15 - 20", "20 - 25", "25+" }},
+                    new { question= _notFinalQuestions[5], answers = new[] { "0 - 7", "7 - 15", "15 - 25", "25 - 35", "35 - 50", "50+" }}, 
+                }
+            );
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new object[]{});
+        }
     }
-
 }
