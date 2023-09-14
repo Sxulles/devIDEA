@@ -1,5 +1,5 @@
 import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
-import { CreateIdea } from "./components/CreateIdea";
+import { NewIdea } from "./components/NewIdea";
 import { Home } from "./components/Home";
 import {Hero} from "./components/Hero";
 
@@ -16,7 +16,7 @@ const AppRoutes = [
   {
     path: '/idea',
     requireAuth: false, // while login system not working
-    element: <CreateIdea />
+    element: <NewIdea />
   },
   ...ApiAuthorzationRoutes
 ];
