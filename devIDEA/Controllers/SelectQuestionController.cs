@@ -40,7 +40,7 @@ public class SelectQuestionController : ControllerBase
         }
         catch (Exception e)
         {
-            return BadRequest(new object[]{});
+            return BadRequest(Array.Empty<object>());
         }
     }
 }
