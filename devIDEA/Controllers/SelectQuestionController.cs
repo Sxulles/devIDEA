@@ -21,9 +21,9 @@ public class SelectQuestionController : ControllerBase
     };
 
     [HttpGet("/selectGetQuestions")]
-    public List<string> SelectGetQuestions()
+    public IActionResult SelectGetQuestions()
     {
-        return _notFinalQuestions;
+        return Ok(_notFinalQuestions);
     }
 
 }
