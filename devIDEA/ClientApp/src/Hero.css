@@ -4,18 +4,6 @@
 .text-white-transparent {
     color: rgba(255, 255, 255, 0.6);
 }
-.text-purpleblue {
-    background: -webkit-linear-gradient(45deg, rgb(92, 0, 184) 40%, rgba(16,103,200,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0px 0px 20px rgb(92, 0, 184));
-}
-
-.btn-purpleblue {
-    background: linear-gradient(90deg, rgb(92, 0, 184) 25%, rgba(16,103,200,1) 100%) !important;
-    color: white !important;
-    border: 1px solid white !important;
-}
 
 .bg-purple-gradient{
     background: linear-gradient(0deg, rgb(92, 0, 184, 0.63) 0%, black 60%) !important;
