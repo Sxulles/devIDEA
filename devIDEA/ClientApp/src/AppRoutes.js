@@ -6,7 +6,7 @@ import {Hero} from "./components/Hero";
 const AppRoutes = [
   {
     index: true,
-    element: <Home />
+    element: <Hero />
   },
   {
     path: '/home',
