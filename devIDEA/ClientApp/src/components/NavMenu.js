@@ -5,10 +5,10 @@ import logo from "../assets/img/logo.png"
 export const NavMenu = () => {
 
   return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary" aria-label="Ninth navbar example">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
         <div className="container-xl">
-          <Link to={"/home"}><img className="w-50" src={logo} alt="Logo"/></Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+          <Link to={"/home"}><img className="dsa" src={logo} alt="Logo"/></Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -18,7 +18,7 @@ export const NavMenu = () => {
                 <Link className="nav-link fs-4 text-white me-5" to={"/idea"}>New Idea</Link>
               </li>
               <li className="nav-item">
-                <button className="btn btn-outline-purple fs-4">Login</button>
+                <button className="btn btn-purple fs-4">Login</button>
               </li>
             </ul>
           </div>
