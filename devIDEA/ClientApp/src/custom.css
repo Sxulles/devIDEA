@@ -1,8 +1,11 @@
 /* Provide sufficient contrast against white background */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@200;400;600&display=swap');
 @import "Hero.css";
+@import "NewIdea.css";
 
 body {
   background: black;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
