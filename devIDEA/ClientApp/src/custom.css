@@ -1,6 +1,8 @@
 /* Provide sufficient contrast against white background */
+@import "Hero.css";
+
 body {
-  background: #000;
+  background: black;
 }
 
 a {
@@ -23,4 +25,8 @@ code {
 
 h1 {
   color: #fff;
+}
+
+.bg-dark {
+  background-color: black !important;
 }
