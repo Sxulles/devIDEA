@@ -11,17 +11,20 @@ export const CreateIdea = () => {
     const [defaultState4, setDefaultState4] = useState("default");
     const [defaultState5, setDefaultState5] = useState("default");
     const [defaultState6, setDefaultState6] = useState("default");
-    let questions;
+    const questions = [];
 
     useEffect(() => {
         populateQuestions();
-        console.log(questions);
+        createQuestions();
     }, []);
 
     const populateQuestions = async () => {
         try {
-            const response = await fetch('selectGetQuestions');
-            questions = await response.json();
+            const response = await fetch('https://localhost:7048/selectGetQuestions');
+            const data = await response.json();
+            data.forEach((e) => {
+                questions.push(e);
+            })
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -109,7 +112,7 @@ export const CreateIdea = () => {
             <h3>Make your idea reality</h3>
 
             <div className="question-contaier" style={currentQuestion === 0 ? {display : "block"} : {display : "block"}}>
-                <span>Here is the question 1!</span>
+                <span id="question1"></span>
                 <select value={defaultState1} className="select1" onChange={handleOnChange} data-value="question1">
                     <option value="default" >Please choose</option>
                     <option value="option2" >option 2</option>
@@ -121,7 +124,7 @@ export const CreateIdea = () => {
             </div>
 
             <div className="question-contaier"  style={currentQuestion >= 1 ? {display : "block"} : {display : "none"}}>
-                <span>Here is the question 2!</span>
+                <span id="question1"></span>
                 <select value={defaultState2} className="select2" onChange={handleOnChange}  data-value="question2">
                     <option value="default">Please choose</option>
                     <option value="option1">option 2</option>
@@ -133,7 +136,7 @@ export const CreateIdea = () => {
             </div>
 
             <div className="question-contaier" style={currentQuestion >= 2 ? {display : "block"} : {display : "none"}}>
-                <span>Here is the question 3!</span>
+                <span id="question1"></span>
                 <select value={defaultState3} className="select3" onChange={handleOnChange}  data-value="question3">
                     <option value="default">Please choose</option>
                     <option value="option1">option 2</option>
@@ -145,7 +148,7 @@ export const CreateIdea = () => {
             </div>
 
             <div className="question-contaier" style={currentQuestion >= 3 ? {display : "block"} : {display : "none"}}>
-                <span>Here is the question 4!</span>
+                <span id="question1"></span>
                 <select value={defaultState4} className="select4" onChange={handleOnChange}  data-value="question4">
                     <option value="default">Please choose</option>
                     <option value="option1">option 2</option>
@@ -157,7 +160,7 @@ export const CreateIdea = () => {
             </div>
 
             <div className="question-contaier" style={currentQuestion >= 4 ? {display : "block"} : {display : "none"}}>
-                <span>Here is the question 5!</span>
+                <span id="question1"></span>
                 <select value={defaultState5} className="select5" onChange={handleOnChange}  data-value="question5">
                     <option value="default">Please choose</option>
                     <option value="option1">option 2</option>
