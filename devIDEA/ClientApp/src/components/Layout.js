@@ -6,9 +6,9 @@ export const Layout = (props) => {
     return (
         <div>
             <NavMenu />
-            <Container tag="main">
+            <div tag="main">
                 {props.children}
-            </Container>
+            </div>
         </div>
     );
 }
