@@ -27,7 +27,7 @@ public class SelectQuestionController : ControllerBase
         try
         {
             return Ok(
-                new List<Object>
+                new List<object>
                 {
                     new { question = _notFinalQuestions[0], answers = new[] { "Blue", "Red", "Yellow", "Black" }},
                     new { question = _notFinalQuestions[1], answers = new[] { "JavaScript", "C#", "Python", "C++", "TypeScript" }},
@@ -40,7 +40,7 @@ public class SelectQuestionController : ControllerBase
         }
         catch (Exception e)
         {
-            return BadRequest(new object[]{});
+            return BadRequest(Array.Empty<object>());
         }
     }
 }
