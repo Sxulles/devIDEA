@@ -17,7 +17,7 @@ export const Hero = () => {
                             </div>
                             
                             
-                            <p className="lead text-secondary mb-0">
+                            <p className="lead text-white-transparent mb-0">
                                 devIDEA hands you a direct and easy way to assemble your idea, to a viable product frame,
                                 which with you can start the development proccess literally.
                             </p>
