@@ -15,7 +15,7 @@ export const Hero = () => {
                             <div className="mb-4">
                                 <h2 className="fs-1 text-light display-1 text-shadow-sm">
                                     <span className="text-shadow-sm">Develop your </span>
-                                    <span className="text-shadow-sm px-4 border bg-dark-transparent text-white">IDEA</span>
+                                    <span className="text-purple-gradient fw-bold">IDEA</span>
                                     <span className="text-shadow-sm"> through us!</span></h2>
                             </div>
                             
