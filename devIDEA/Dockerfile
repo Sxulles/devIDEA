@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:latest AS build-env
 WORKDIR /app
 
 # Install Node.js and npm
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 
 # Verify Node.js and npm versions
