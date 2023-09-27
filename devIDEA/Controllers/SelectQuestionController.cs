@@ -1,5 +1,4 @@
 using devIDEA.Models;
-using devIDEA.Models.Repositories;
 using Duende.IdentityServer.EntityFramework.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;

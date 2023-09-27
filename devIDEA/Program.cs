@@ -1,8 +1,8 @@
+using devIDEA.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
-using devIDEA.Data;
 using devIDEA.Middleware;
 using devIDEA.Models;
 
@@ -56,5 +56,30 @@ app.MapRazorPages();
 app.UseCorsMiddleware();
 
 app.MapFallbackToFile("index.html");
+
+void InitializeDb()
+{
+    using var db = new DevIdeaApiContext();
+    InitializeCities();
+    PrintCities();
+
+    void InitializeCities()
+    {
+        db.Add(new User { UserName = "Tom", Email = "test1@gmail.com", Password = "12345", RegistrationTime = "2022"});
+        db.Add(new User { UserName = "Andy", Email = "test2@gmail.com", Password = "12323145", RegistrationTime ="2022"});
+        db.Add(new User { UserName = "Carl", Email = "test3@gmail.com", Password = "12145", RegistrationTime = "2022"});
+        db.SaveChanges();
+    }
+
+    void PrintCities()
+    {
+        foreach (var user in db.Users)
+        {
+            Console.WriteLine($"{user.Id}, {user.UserName}, {user.Email}, {user.RegistrationTime}");
+        }
+    }
+}
+
+InitializeDb();
 
 app.Run();

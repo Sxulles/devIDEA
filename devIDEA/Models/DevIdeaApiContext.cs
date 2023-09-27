@@ -9,6 +9,6 @@ public class DevIdeaApiContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Server=localhost,1433;Database=DevIdea;User Id=sa;Password=DevForce153;");
+            "Server=localhost,1433;Database=DevIdea;User Id=sa;Password=yourStrong(!)Password;Encrypt=false;");
     }
 }
