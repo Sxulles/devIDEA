@@ -1,20 +1,26 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+﻿# Use the appropriate base images
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:latest AS build-env
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
-COPY ["devIDEA/devIDEA.csproj", "devIDEA/"]
-RUN dotnet restore "devIDEA/devIDEA.csproj"
-COPY . .
-WORKDIR "/src/devIDEA"
-RUN dotnet build "devIDEA.csproj" -c Release -o /app/build
+# Install Node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
 
-FROM build AS publish
-RUN dotnet publish "devIDEA.csproj" -c Release -o /app/publish /p:UseAppHost=false
+# Verify Node.js and npm versions
+RUN node -v
+RUN npm -v
 
-FROM base AS final
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "devIDEA.dll"]
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "devidea.dll"]
