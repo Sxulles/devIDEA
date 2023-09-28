@@ -6,12 +6,30 @@ export const NewIdea = () => {
     const [questionAnswerPair, setQuestionAnswerPair] = useState([]);
 
     useEffect(() => {
+        getTestUser();
         syncFetchApi();
     }, []);
 
     const setAvailableField = (item) => {
         setAvailableFieldIndexes((prevState) => new Set([...prevState, item]));
     };
+    
+    const getTestUser = async () => {
+        let userName = "Carl";
+        
+        try {
+            const response = await fetch(`https://localhost:7048/GetUserByName/${userName}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
 
     const syncFetchApi = () => {
         try {

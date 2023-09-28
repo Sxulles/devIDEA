@@ -27,6 +27,18 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+// CORS Policy Settings
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsMiddleware", builder =>
+    {
+        builder
+            .WithOrigins("https://localhost:44403")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,6 +56,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors("CorsMiddleware");
+
 app.UseAuthentication();
 app.UseIdentityServer();
 app.UseAuthorization();
@@ -53,7 +67,7 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.UseCorsMiddleware();
+// app.UseCorsMiddleware();
 
 app.MapFallbackToFile("index.html");
 
